@@ -31,17 +31,13 @@ void app_main(void)
 
     int leds_to_light = 9;
 
-    for (int i = 0; i < leds_to_light; i++) {
-      led_strip_set_pixel(led_strip, i, 0, 0, 0);
-    }
-    led_strip_refresh(led_strip);
+    led_strip_clear(led_strip);
     for (int i = 0; i < leds_to_light; i++) {
       led_strip_set_pixel(led_strip, i, 0, 0, 200);
       led_strip_refresh(led_strip);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
 
-    printf("Looping...\n");
     vTaskDelay(10000 / portTICK_PERIOD_MS);
   }
 }
